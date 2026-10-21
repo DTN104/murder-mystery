@@ -1,0 +1,23 @@
+# Local editor and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Generated builds, previews and analysis
+dist/
+_preview/
+graphify-out/
+.playwright-mcp/
+test-results/
+playwright-report/
+__pycache__/
+*.py[cod]
+*.log
+node_modules/
+
+# Local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key

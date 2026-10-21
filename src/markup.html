@@ -1,0 +1,102 @@
+<div id="stage">
+  <canvas id="room"></canvas>
+  <div id="world">
+    <div id="pins" aria-label="Bảng ghim"></div>
+    <button class="hot" id="hot-mon" aria-label="Cúi xuống màn hình"><span class="lbl">Màn hình</span></button>
+    <button class="hot" id="hot-door" aria-label="Khóa cửa"><span class="lbl">Khóa cửa</span></button>
+    <button class="hot" id="hot-radio" aria-label="Bộ đàm, gọi ĐTV"><span class="lbl">Bộ đàm</span></button>
+  </div>
+  <div id="room-shade" aria-hidden="true"></div>
+  <div id="room-status" role="status"></div>
+  <nav id="view-controls" aria-label="Hướng nhìn">
+    <button id="look-left" aria-label="Nhìn bảng ghim">‹ Bảng ghim</button>
+    <button id="look-desk" aria-pressed="true">Bàn trực</button>
+    <button id="look-door" aria-pressed="false">Cửa ›</button>
+    <button id="quick-lock" aria-pressed="false">Khóa cửa</button>
+  </nav>
+  <div id="look-hint">Rê chuột ra cạnh để quay đầu · Space: màn hình</div>
+  <div id="toast"></div>
+  <div id="hud"><div id="clock" class="num">00:00</div><div class="n" id="night-label">Đêm 1 · B1 · Phòng KTS</div></div>
+  <div id="power"><div class="t">UPS</div><div class="bar"><i id="upsbar"></i></div><div class="pct num" id="upspct">100%</div></div>
+  <button id="flip" aria-pressed="false">▲ Cúi xuống màn hình</button>
+  <button id="radiobtn" aria-expanded="false">Bộ đàm</button>
+  <button id="demo-toggle" aria-expanded="false">⚙ demo</button>
+
+  <div id="monitor" hidden>
+    <div class="screen">
+      <nav class="tabs" role="tablist" aria-label="Chế độ">
+        <button role="tab" data-tab="files" aria-selected="false">Hồ sơ</button>
+        <button role="tab" data-tab="cam" aria-selected="true">Cam</button>
+        <button role="tab" data-tab="board" aria-selected="false">Bảng kết luận</button>
+        <span class="sp"></span><span class="st">KTS-B1 · ca đêm · <span id="mon-clock" class="num">00:00</span></span>
+      </nav>
+      <div id="main">
+        <section class="pane" id="pane-cam" role="tabpanel">
+          <div>
+            <svg class="map" viewBox="0 0 200 130" aria-label="Sơ đồ tầng hầm B1">
+              <rect class="room" data-cam="cam01" x="6" y="6" width="56" height="40"/><text x="10" y="17">01 SẢNH</text>
+              <rect class="room" data-cam="cam05" x="68" y="6" width="36" height="40"/><text x="71" y="17">05 THANG</text>
+              <rect class="room" data-cam="cam04" x="110" y="6" width="84" height="40"/><text x="114" y="17">04 SERVER</text>
+              <rect class="room" data-cam="cam02" x="6" y="52" width="188" height="24"/><text x="10" y="66">02 HÀNH LANG</text>
+              <rect class="room" data-cam="cam03" x="6" y="82" width="90" height="42"/><text x="10" y="93">03 KHO VC</text>
+              <rect class="room" data-cam="cam06" x="102" y="82" width="34" height="42"/><text x="105" y="93">06 WC</text>
+              <rect class="you" x="142" y="82" width="52" height="42"/><text class="you" x="146" y="93">PHÒNG KTS</text><text class="you" x="146" y="104">(BẠN)</text>
+              <rect x="160" y="76" width="16" height="4" fill="#e3a63c" id="mapdoor"/>
+            </svg>
+            <div class="camlist" id="camlist" role="listbox" aria-label="Kênh camera"></div>
+          </div>
+          <div class="feedwrap">
+            <div class="feed" id="feed">
+              <canvas id="cv" width="640" height="360"></canvas>
+              <div class="crt"></div>
+              <div class="osd"><span id="osd-cam">CAM 02 · Hành lang B1</span><span class="rec">REC</span></div>
+              <div class="osd2 num" id="osd-time">00:00:00</div>
+            </div>
+            <div class="hint">Nhìn đúng cam có Nó thì Nó chậm lại. Mà lúc cúi xuống màn hình thì bạn không thấy cửa.</div>
+          </div>
+        </section>
+        <section class="pane" id="pane-files" role="tabpanel" hidden>
+          <div class="evlist" id="evlist" role="listbox" aria-label="Bằng chứng"></div>
+          <div class="doc" id="doc"><h3>Gói bằng chứng đêm nay</h3><p class="dim">Chọn một mục bên trái. Mở lần đầu thì một tờ được ghim lên bảng.</p></div>
+        </section>
+        <section class="pane" id="pane-board" role="tabpanel" hidden>
+          <div class="board" id="board"></div>
+          <div class="submit"><button id="submit">Nộp kết luận</button><span id="verdict"></span></div>
+          <p class="dim" style="margin-top:12px;max-width:60ch">Đúng cả 4 ô trước 06:00 là bàn giao. Nộp sai thì chỉ biết số ô đúng, Nó lên một cấp, nút nộp khóa 10 giây.</p>
+        </section>
+      </div>
+      <aside id="side"><div class="hd">Sổ tay</div><ul id="notelist"></ul><div class="empty" id="noteempty">Chưa ghi gì. Mở bằng chứng là có.</div></aside>
+    </div>
+  </div>
+
+  <div id="radio" hidden>
+    <div class="hd"><span>Bộ đàm · ĐTV hiện trường</span><button id="radio-close" aria-label="Đóng">×</button></div>
+    <div id="msgs" aria-live="polite"></div>
+    <div id="chips"></div>
+  </div>
+
+  <div id="demo" hidden>
+    <div class="hd">Bảng demo</div>
+    <div class="row"><span class="dim">Tốc độ</span><button data-speed="1" aria-pressed="false">×1 (10 phút)</button><button data-speed="3" aria-pressed="true">×3</button><button data-speed="10" aria-pressed="false">×10</button></div>
+    <div class="row"><button id="d-door">Nó → cửa</button><button id="d-hall">Nó → hành lang</button><button id="d-cam07">CAM 07 chớp</button><button id="d-scare">Xem jumpscare</button><button id="d-fill">Điền đáp án</button></div>
+    <label><input type="checkbox" id="d-reduce"> Giảm kinh dị (ít chuyển động, âm nhỏ)</label>
+    <div class="dim">Bản thật không có bảng này.</div>
+  </div>
+</div>
+
+<div class="ov" id="boot">
+  <h1>CA ĐÊM</h1>
+  <p id="boot-text"></p>
+  <p class="sub">Đeo tai nghe. Có âm thanh lớn và hình gây giật. Sợ thì bật "Giảm kinh dị" trong bảng demo.</p>
+  <button id="start">Bấm để bắt đầu ca trực</button>
+  <p class="sub num" id="loadst">Đang tải hình…</p>
+</div>
+<div class="ov" id="scare" hidden>
+  <canvas id="sc-static"></canvas><canvas id="sc-face"></canvas>
+  <div class="end"><h2>CA TRỰC KẾT THÚC</h2><p class="num" id="scare-time">...</p><button id="retry">Chơi lại, giữ bảng ghim</button></div>
+</div>
+<div class="ov" id="over" hidden>
+  <h2 id="over-h">BÀN GIAO</h2><p id="over-p"></p><button id="over-btn">Chơi lại đêm 1</button>
+</div>
+
+<div class="ov" id="room-error" hidden role="alert"><h2>Không mở được phòng trực</h2><p id="room-error-text"></p><button id="room-reload" onclick="location.reload()">Tải lại</button></div>
