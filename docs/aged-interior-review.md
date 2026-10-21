@@ -1,5 +1,13 @@
 # Không gian cũ hơn — 21/10/2026
 
+## Bản sửa sau phản hồi “vẫn hơi sang trọng”
+
+Bản hiện tại bỏ gạch bông, ốp gỗ chân tường, phào và chụp đèn. Thay bằng nền xi măng loang mòn, tường bong lớp vôi và vệt ẩm, bóng đèn trần, cửa gỗ xám có mảng vá. Giảm sắc vàng nâu và các bề mặt trang trí. Không đổi vùng va chạm hoặc tiến trình.
+
+Build, kiểm tra cú pháp và 13 nhóm kiểm thử trình duyệt đều đạt. Ảnh hiện tại trong `_preview/derelict-interior/`; lượt xem desktop/mobile không có lỗi JavaScript. Rà soát độc lập xác nhận cảnh bớt sang trọng, đường đi và các vật chứng còn rõ. Các ghi chú bên dưới mô tả bản trước để đối chiếu.
+
+## Bản trước
+
 Theo phản hồi muốn căn nhà bớt hiện đại và cổ hơn một chút, chỉnh cảnh TẦNG 13 đang mở: vôi ngả màu với mảng bong/vết nứt nhỏ, chân tường ốp gỗ, gạch bông hoa bốn cánh bạc màu, đèn chụp kim loại và bóng đèn vàng. Cửa thêm ô gỗ, cửa sổ chia khung gỗ, đồng hồ có hộp gỗ. Giữ số giờ 02:17 và toàn bộ nội dung vật chứng.
 
 Thay đổi trong `case13/world.js`; không đổi bản đồ, vùng va chạm, điều kiện mở cửa, AI hoặc tiến trình. Vật liệu được vẽ cục bộ, không thêm tài nguyên mạng.
