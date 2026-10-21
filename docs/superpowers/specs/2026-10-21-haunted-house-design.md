@@ -64,7 +64,7 @@ Bản minh họa đi kèm tại `../../mockups/haunted-house-options.html` có h
 - A — Nhập vai tối giản (đề xuất): cảnh chiếm trọn màn hình, mục tiêu ngắn ở góc, sổ án chỉ mở khi cần. Máy ảnh làm xuất hiện khung ngắm khi giơ lên.
 - B — Hồ sơ hiện trường: cảnh trong khung máy ảnh, bên phải là cột vật chứng và ghi chú luôn hiện. Dễ theo dõi vụ án nhưng giảm cảm giác đứng một mình trong nhà.
 
-Minh họa chỉ quyết định bố cục và ánh sáng chủ đạo; cảnh SVG không phải chất lượng mô hình hoặc ảnh chụp game hoàn thành. Tạo hình sinh vật cần bóng dáng nhất quán giữa khi nhìn từ xa, gần và qua máy ảnh; không dùng đầu hình cầu/mắt vẽ đơn giản. Art hiện có có thể dùng làm mốc ban đầu, không hứa nhân vật 3D điêu khắc mới.
+Cập nhật mỹ thuật 22/10/2026 theo phản hồi của người dùng: nhà dân bỏ hoang mục nát, ọp ẹp như phim kinh dị; mái hở, trần võng, vữa bong lộ gạch, màn rách, giường sắt gỉ, tủ lệch cánh, đồ đạc bụi bẩn. Bỏ cảm giác hành lang khách sạn, ốp gỗ và chi tiết sang trọng. Cả A/B dùng ảnh ý tưởng được tạo bằng công cụ image_gen; hồ sơ B đổi sang nền tối. Chưa có lựa chọn A/B cuối cùng. Minh họa chỉ quyết định hướng mỹ thuật và bố cục, không phải ảnh game hoàn thành hoặc cam kết chất lượng mô hình 3D. Tạo hình sinh vật cần bóng dáng nhất quán giữa khi nhìn từ xa, gần và qua máy ảnh; không dùng đầu hình cầu/mắt vẽ đơn giản. Art hiện có có thể dùng làm mốc ban đầu, không hứa nhân vật 3D điêu khắc mới.
 
 ## Tổ chức triển khai dự kiến
 
