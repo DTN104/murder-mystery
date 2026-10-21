@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="data:,"><title>TẦNG 13 — Cuộc gọi cuối</title><link rel="stylesheet" href="case13/style.css"></head>
+<body>
+<canvas id="world" aria-label="Không gian điều tra 3D"></canvas><div id="vignette"></div><div id="danger"></div>
+<div id="hud" hidden>
+ <header><div class="brand">TẦNG <b>13</b><span>HỒ SƠ 013 / 02:41</span></div><button id="journal-open">Sổ án <kbd>J</kbd><i id="clue-count">0</i></button></header>
+ <aside id="mission"><span id="chapter">01 / CUỘC GỌI CUỐI</span><p id="objective"></p></aside>
+ <div id="reticle">·</div><button id="interact" hidden><kbd>E</kbd><span></span></button>
+ <div id="subtitle" role="status" aria-live="polite"><span></span><p></p></div>
+ <div id="discovery" role="status"></div>
+ <footer><span id="location">Sảnh tầng 13</span><div class="meters"><label>ĐÈN PIN <i><b id="battery"></b></i></label><label>THỂ LỰC <i><b id="stamina"></b></i></label></div><button id="look-button" aria-pressed="false">Nhìn bằng chuột</button><button id="light-button">Đèn <kbd>F</kbd></button><button id="map-button">Sơ đồ <kbd>M</kbd></button><button id="help-button">Điều khiển</button><button id="pause-button" aria-label="Tạm dừng">Ⅱ</button></footer>
+ <div id="guide">WASD đi · Bấm vào cảnh để rê chuột nhìn · Q/R hoặc ←/→ quay · E / Space tương tác · C nhìn thẳng</div>
+ <div id="touch-controls"><div id="joystick"><i></i></div><button id="touch-run">Chạy</button></div>
+ <div id="hidden-state" hidden>ĐANG TRỐN<span>Giữ im lặng. Bấm E để ra ngoài.</span></div>
+</div>
+<section class="overlay title-screen" id="title"><div class="case-label">MỘT VỤ ÁN. MỘT TẦNG NHÀ. KHÔNG CÓ LỐI VỀ.</div><h1>TẦNG <em>13</em></h1><h2>CUỘC GỌI CUỐI</h2><p>02:41. Một cô gái mất tích gọi từ căn hộ đã bị niêm phong.<br>“Em vẫn ở đây. Nhưng người ngoài cửa… đang dùng giọng của anh.”</p><button class="primary" id="start" disabled>Bắt đầu điều tra <span>↗</span></button><div id="load-status" role="status">Đang dựng tầng nhà…</div><div class="title-options"><label><input id="reduce" type="checkbox"> Giảm kinh dị & chuyển động</label><a href="./index.html">HIỆN TRƯỜNG 09</a><a href="desk.html">Bản phòng trực cũ</a></div><small>Đeo tai nghe để nghe hướng bước chân. Có cảnh giật mình.</small></section>
+<section class="overlay" id="modal" hidden><div class="sheet"><button id="modal-close" aria-label="Đóng">×</button><div id="modal-content"></div></div></section>
+<section class="overlay" id="ending" hidden><div class="ending-content"><div id="ending-kicker"></div><h1 id="ending-title"></h1><p id="ending-copy"></p><div id="ending-actions"></div></div></section>
+<section class="overlay scare" id="scare" hidden><canvas id="scare-canvas"></canvas></section>
+<section class="overlay" id="error" hidden><h2>Chưa mở được tầng nhà</h2><p id="error-copy"></p><button onclick="location.reload()">Tải lại</button></section>
+<script type="module" src="case13/game.js"></script>
+</body></html>

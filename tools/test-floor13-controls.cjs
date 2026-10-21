@@ -6,7 +6,7 @@ const {startServer}=require('./test-server.cjs');
  const output=path.resolve(__dirname,'../_preview/floor13-controls');fs.mkdirSync(output,{recursive:true});
  const context=await browser.newContext({viewport:{width:1280,height:800},recordVideo:{dir:output,size:{width:960,height:600}}});
  const errors=[],checks=[];
- const open=async(p)=>{p.on('pageerror',e=>errors.push(e.message));await p.goto(server.url);await p.waitForFunction(()=>window.case13&&!document.querySelector('#start').disabled);await p.locator('#start').click();await p.locator('#help-play').click();};
+ const open=async(p)=>{p.on('pageerror',e=>errors.push(e.message));await p.goto(server.url+'/floor13.html');await p.waitForFunction(()=>window.case13&&!document.querySelector('#start').disabled);await p.locator('#start').click();await p.locator('#help-play').click();};
  try{
   const page=await context.newPage();await open(page);
   await page.locator('#look-button').click();await page.waitForFunction(()=>document.pointerLockElement===document.querySelector('#world'));

@@ -1,0 +1,4 @@
+import * as T from '../vendor/three/three.module.js';
+export function visible(world,state,point){world.scene.updateMatrixWorld(true);const d=point.clone().sub(world.camera.position),length=d.length();const ray=new T.Raycaster(world.camera.position,d.normalize(),.08,Math.max(.09,length-.15));return !ray.intersectObjects(world.blockers(state),true).length;}
+export function aimed(world,state,item,cone=.89){const d=item.point.clone().sub(world.camera.position);return d.length()<=item.range&&d.normalize().dot(world.camera.getWorldDirection(new T.Vector3()))>cone&&visible(world,state,item.point);}
+export function photoTarget(world,state){if(!state.collected.has('badge'))return null;for(const id of ['echo','body']){if(state.collected.has(id))continue;if(id==='echo'&&!(state.collected.has('phone')&&state.routeOpen&&state.bedroomOpen))continue;if(id==='body'&&!state.basementOpen)continue;if(aimed(world,state,world.targets[id],.94))return id;}return null;}

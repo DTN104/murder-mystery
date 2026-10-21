@@ -16,3 +16,11 @@ Use case: stylized-concept. Asset type: cinematic environment concept background
 ## Kiểm tra
 
 Đã mở trang qua HTTP bằng Chrome, xem cả A/B ở 1440×1000 và 390×844; ảnh tải đủ, không tràn ngang và không lỗi JavaScript. Ảnh chụp giao diện nằm cục bộ ở `_preview/house09-derelict/`. Nhãn phụ dưới khung ngắm đã bỏ để tránh chồng chữ trên màn hình nhỏ.
+
+## Vật liệu bản chơi — 2026-10-22
+
+Asset: `house09/assets/decay-atlas.png`, tạo bằng công cụ image_gen tích hợp. Bốn vùng của một atlas được ánh xạ trực tiếp bằng UV, không cắt/chỉnh ảnh bằng script. Tường, gỗ, nền xi măng và vải cũ dùng chung atlas này. Cảnh chơi là hình học 3D với vật liệu ảnh; chưa đạt độ chi tiết của ảnh concept.
+
+Prompt đã dùng:
+
+> Use case: stylized-concept. Asset type: a square physically realistic material texture atlas for an actual first person haunted house 3D game. Exactly four equally sized quadrants in a clean 2 by 2 atlas grid, NO borders, NO labels, NO text. Each quadrant is an orthographic straight-on close-up of a flat surface with even diffuse illumination, no perspective, no scene, no cast shadows. Top left quadrant: very old Vietnamese house wall, wet grey-green crumbling lime plaster with naturally irregular patches exposing rough reddish bricks, black mold and damp streaks, dramatic real decay. Top right quadrant: rotten desaturated brown-grey timber boards, chipped paint fragments, cracked fibrous wood grain, uneven knots, old nail heads, dusty and rough, NO polished varnish. Bottom left quadrant: filthy aged concrete floor, hairline cracks, dust, dark water stains, subdued grey green brown, no decorative tiles, no rubble objects. Bottom right quadrant: decayed dirty linen mattress fabric with worn weave, irregular dark water stains, frayed patches, grey-beige. Match all four to an abandoned ramshackle haunted family home from a gritty horror film. Real photographic surface microdetail. Not an elegant mansion, not clean, not stylized, no ornaments, no gold. Image square, large detailed texture sheet.

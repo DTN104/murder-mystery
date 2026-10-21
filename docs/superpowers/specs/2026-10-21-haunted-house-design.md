@@ -88,3 +88,7 @@ Save key riêng `house09-checkpoint-v1`, lưu chứng cứ, cửa mở, cờ s�
 ## Tự rà soát
 
 Đã xác định mục tiêu, manh mối, lối thoát, điều kiện sự kiện, phạm vi máy ảnh, save và tiêu chí đạt. Cần người dùng chọn A/B và duyệt bản thiết kế này trước khi lập kế hoạch triển khai theo quy trình brainstorming. Không coi tài liệu này là game đã làm xong.
+
+## Cập nhật triển khai — 2026-10-22
+
+Người dùng đã duyệt hướng nhà hoang phế và yêu cầu tiếp tục. Bản chơi đầu tiên đã được triển khai dưới tên **HIỆN TRƯỜNG 09 — Người sau tường**, vào thẳng từ trang chủ. Dùng bố cục HUD gọn của hướng A, chất liệu theo concept derelict-2. Hai game cũ được giữ ở floor13.html và desk.html. Phạm vi thực tế và kiểm tra: `docs/playtest-house09.md`; khác biệt mỹ thuật so với concept được ghi rõ tại đó.

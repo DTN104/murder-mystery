@@ -1,14 +1,22 @@
 # Murder Mystery
 
-Repo chứa các game điều tra kinh dị và tài nguyên dùng chung:
+Ba game dùng chung một repo, chạy trên static hosting:
 
-| Game | Trạng thái | Trang mở |
-| --- | --- | --- |
-| TẦNG 13 — Cuộc gọi cuối | Đã có bản chơi | `index.html` |
-| CA ĐÊM | Đã có bản chơi | `desk.html` |
-| HIỆN TRƯỜNG 09 — Căn nhà còn nhớ | Thiết kế và minh họa, chưa có bản chơi | [Thiết kế](docs/superpowers/specs/2026-10-21-haunted-house-design.md) · [Minh họa](docs/mockups/haunted-house-options.html) |
+| Game | Trang mở |
+| --- | --- |
+| HIỆN TRƯỜNG 09 — Người sau tường | `index.html` hoặc `house09.html` |
+| TẦNG 13 — Cuộc gọi cuối | `floor13.html` |
+| CA ĐÊM | `desk.html` |
 
-Trang chủ hiện mở TẦNG 13. Các bước chạy và kiểm tra dưới đây áp dụng cho bản hiện có. File đóng gói `dist/` được tạo bằng công cụ build; ảnh/video kiểm thử và cấu hình cá nhân không được đưa vào Git.
+## HIỆN TRƯỜNG 09
+
+Bản chơi 3D của vụ án trong căn nhà bỏ hoang: tìm Lan, khám vật chứng, dùng máy ảnh để ghi dấu vết vô hình, mở phòng tối và hầm rồi đưa kết luận ra cửa chính. Có hai đợt truy đuổi, cửa thông, tủ trốn, đường vòng khi hành lang sập và điểm lưu riêng. Băng ghi âm là chứng cứ bổ sung tùy chọn.
+
+**WASD / mũi tên** đi; **chuột** nhìn; **E** khám/trốn; **V** giơ máy; **X** chụp; **F** đèn; **Shift** chạy; **J** hồ sơ; **M** sơ đồ; **Esc** tạm dừng. Điện thoại: giữ mũi tên, kéo cảnh để nhìn, chạm các nút hành động; Chạy là nút bật/tắt. Chế độ giảm giật mình bỏ ảnh áp sát và làm đối tượng săn đuổi chậm hơn. Có tắt âm trong Tạm dừng.
+
+`house09/` chứa cảnh, điều khiển, máy ảnh và tiến trình. Thư viện Three.js, ảnh ma và các mô-đun âm thanh/chuột/tìm đường được dùng chung với TẦNG 13. Cảnh dựng bằng hình học và vật liệu ảnh cục bộ; ảnh minh họa trong `docs/mockups` là chuẩn mỹ thuật, không phải ảnh chụp game.
+
+Kiểm tra: `node tools/test-house09-state.mjs` và `node tools/test-house09.cjs`. Kiểm tra trình duyệt cần Playwright/Chrome. `PLAYWRIGHT_MODULE` cho phép chỉ đường dẫn thư viện có sẵn. Bằng chứng kiểm tra nằm trong `_preview/house09/` (không đưa vào Git).
 
 ## TẦNG 13 — Cuộc gọi cuối
 
@@ -16,7 +24,7 @@ Game điều tra kinh dị góc nhìn thứ nhất, chơi trực tiếp trong m�
 
 ## Mở game
 
-Trên Mac, bấm đúp **Mở TẦNG 13.command**. Giữ cửa sổ máy chủ mở trong lúc chơi.
+Trên Mac, bấm đúp **Mở HIỆN TRƯỜNG 09.command**. Giữ cửa sổ máy chủ mở trong lúc chơi.
 
 Hoặc chạy:
 
@@ -24,9 +32,9 @@ Hoặc chạy:
 python3 tools/play.py
 ```
 
-Trang đầu mở **TẦNG 13**. Liên kết **Bản phòng trực cũ** mở game CA ĐÊM trước đó ở `desk.html`. Thư viện, vật liệu và âm thanh của bản mới đều nằm cục bộ; không cần cài npm hoặc kết nối mạng. Cần trình duyệt hỗ trợ WebGL 2 và mở qua HTTP, không mở `index.html` bằng `file://`.
+Trang đầu mở **HIỆN TRƯỜNG 09**. TẦNG 13 nằm ở `floor13.html`. Liên kết **Bản phòng trực cũ** mở game CA ĐÊM trước đó ở `desk.html`. Thư viện, vật liệu và âm thanh của bản mới đều nằm cục bộ; không cần cài npm hoặc kết nối mạng. Cần trình duyệt hỗ trợ WebGL 2 và mở qua HTTP, không mở `index.html` bằng `file://`.
 
-## Điều khiển
+## Điều khiển TẦNG 13
 
 - **WASD** đi lại; bấm vào cảnh rồi rê chuột để nhìn, không cần giữ nút. **Q/R** hoặc **← →** quay; **↑ ↓** tiến/lùi; **C** nhìn thẳng lại.
 - **E / Space** hoặc bấm nhãn giữa màn hình để tương tác. Đến gần và hướng mắt về vật.
@@ -44,7 +52,7 @@ python3 tools/build.py
 python3 tools/play.py --dist
 ```
 
-Đưa **toàn bộ** thư mục `dist` lên static hosting. `dist/index.html` là TẦNG 13; `dist/desk.html` là phòng trực cũ. Không chỉ tải một file HTML riêng lẻ.
+Đưa **toàn bộ** thư mục `dist` lên static hosting. `dist/index.html` là HIỆN TRƯỜNG 09; `dist/floor13.html` là TẦNG 13; `dist/desk.html` là phòng trực cũ. Không chỉ tải một file HTML riêng lẻ.
 
 ## Kiểm tra
 
@@ -58,7 +66,7 @@ Kiểm tra trình duyệt dùng Playwright và Chrome. Có thể đặt `PLAYWRI
 
 ## Cấu trúc
 
-- `index.html`, `case13/style.css`: giao diện bản mới.
+- `floor13.html`, `case13/style.css`: giao diện bản mới.
 - `case13/world.js`: chung cư 3D, vật chứng, cửa, va chạm và ánh sáng.
 - `case13/game.js`: điều khiển, tương tác, truy đuổi, sổ án, mật mã và kết thúc.
 - `case13/state.mjs`: vụ án, tiến trình và mốc lưu.
