@@ -4,8 +4,8 @@
    the notebook as pinned cards; the radio on the desk is the ĐTV chat. Single committed look: a damp
    basement office lit by one fluorescent tube, phosphor green on the CRT, amber for warnings. */
 :root{
-  --bg:#07090a; --panel:#0c1112; --panel2:#111819; --line:#1f2d2b; --line2:#2f4440;
-  --fg:#c9d6cf; --dim:#6f807a; --amber:#e3a63c; --red:#d8493a; --cam:#a3dbb3; --ok:#7fc99a; --paper:#efe6c9;
+  --bg:#030504; --panel:#080c0a; --panel2:#101611; --line:#29312b; --line2:#424c3f;
+  --fg:#c2c9bc; --dim:#929d8b; --amber:#b99979; --red:#bf766b; --cam:#a3b293; --ok:#8da17c; --paper:#171e18;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
   --hud:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
   color-scheme:dark;
@@ -280,3 +280,31 @@ select{font:inherit;color:var(--fg);background:var(--panel2);border:1px solid va
 
 [hidden]{display:none!important}
 @media(pointer:coarse){#look-hint{font-size:0}#look-hint::after{content:"Kéo ngang để quay đầu · Chạm CRT để xem";font-size:9px}}
+
+/* Charcoal, aged moss and rust: no bright document or banking panels. */
+#boot{background:radial-gradient(ellipse at 50% 40%,#18201766,transparent 65%),repeating-linear-gradient(0deg,transparent 0 3px,#00000026 3px 4px),#030504}
+#boot h1{color:#c4c7bd;text-shadow:3px 2px 0 #3d211d,0 0 45px #6c201525}
+#boot button{background:#321a17;border-color:#815047;color:#e0d0c5;box-shadow:inset 3px 0 0 #a56557,0 8px 30px #0008}
+#boot button:hover{background:#45241e;border-color:#c08170}
+#boot .sub{color:var(--dim)}
+#monitor{background:#080c09;box-shadow:0 0 0 2px #020403,0 20px 60px #000d,inset 0 0 0 1px #343c30}
+#monitor .screen{border:1px solid #252e25}
+.paper,.pin{background:var(--paper);color:#c5c9ba;border-color:#3c4639}
+.paper .meta{color:#a1a995}
+.paper .hot2,.paper .stamp{color:#d2a18c}.paper .stamp{border-color:#a47560;opacity:1}
+.pin.odd{background:#20251e}.pin b{color:#d2a18c}
+.phone .scr,.phone.dark .scr{background:#0c120f;color:var(--fg)}
+.phone .sb,.phone.dark .sb{color:#bdc7b5}
+.bank .hd{background:#1b2820;color:#d3d8ca}.bank .bal{background:#131d16;color:#c3cbb8}
+.bank .row{border-top-color:var(--line)}
+.bank .row .amt.neg{color:#d69b8d}.bank .row .amt.pos{color:#a4bd90}
+.bank .row .meta{color:#9aa691}.bank .row.hot2{background:#29291b}
+.photos .ph{background:#20271e;border:1px solid #424b39}.photos .cap{color:#bdc4b0}
+.chat .them{background:#19221b}.chat .me{background:#293426}
+#hud #clock,#power .pct{color:#c1c9b9}
+#room-shade{background:radial-gradient(ellipse at 48% 48%,transparent 35%,#010302bb 100%)}
+#view-controls button{background:#080d09ed;color:#b0bba5;border-color:var(--line2)}
+#view-controls button[aria-pressed=true]{background:#1d251a;color:#d2d6c3;border-color:#7c886a}
+#look-hint{color:var(--dim)}
+#flip,#radiobtn,#demo-toggle{background:#080d09ed;color:#b9c4ad}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
