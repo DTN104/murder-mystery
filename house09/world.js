@@ -1,5 +1,5 @@
 import * as T from '../vendor/three/three.module.js';
-import {createPursuer} from '../case13/pursuer.js';
+import {createPursuer} from './pursuer.js';
 import {doorClosed} from './state.mjs';
 export function createWorld(canvas){
  const renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
@@ -81,7 +81,7 @@ export function createWorld(canvas){
  for(const [x0,x1,z0,z1]of regions)for(let i=0;i<18;i++){const x=i%2?x0+.22+rnd()*.3:x1-.22-rnd()*.3,z=z0+.25+rnd()*(z1-z0-.5),o=box(.06+rnd()*.22,.025+rnd()*.05,.08+rnd()*.21,x,floorY(x,z)+.04,z,i%3?plaster:wood);o.rotation.y=rnd()*6;o.rotation.z=(rnd()-.5)*.2;}
  const rubble=new T.Group();rubble.visible=false;scene.add(rubble);for(let i=0;i<4;i++){const o=box(2.8,.18,.2,0,.35+i*.2,-7.2+(i%2)*.2,wood,rubble);o.rotation.z=(i%2?1:-1)*.17;}
  const pursuer=createPursuer(),ghost=pursuer.root;scene.add(ghost);
- const echo=new T.Group();scene.add(echo);const spiritMap=new T.TextureLoader().load(new URL('../assets/opt/no_front.png',import.meta.url).href);spiritMap.colorSpace=T.SRGBColorSpace;const silhouette=new T.Mesh(new T.PlaneGeometry(1.05,1.8),new T.MeshBasicMaterial({map:spiritMap,color:'#a3c2b5',transparent:true,opacity:.48,alphaTest:.04,side:T.DoubleSide,depthWrite:false}));echo.add(silhouette);echo.position.set(-4.5,1.2,-15);echo.visible=false;
+ const echo=new T.Group();scene.add(echo);const spiritMap=new T.TextureLoader().load(new URL('./assets/apparition-front.png',import.meta.url).href);spiritMap.colorSpace=T.SRGBColorSpace;const silhouette=new T.Mesh(new T.PlaneGeometry(1.2,1.8),new T.MeshBasicMaterial({map:spiritMap,color:'#a3c2b5',transparent:true,opacity:.48,alphaTest:.04,side:T.DoubleSide,depthWrite:false}));echo.add(silhouette);echo.position.set(-4.5,1.2,-15);echo.visible=false;
  // Chalk trace is only visible through the camera, aligned with the photograph target.
  const trace=plane(.7,.35,-1.45,base+.02,-24.5,label(['LAN','H'],256,128,'#7a8d78','#15261a'));trace.rotation.x=-Math.PI/2;trace.visible=false;
  function solidAt(x,z,s,r=.23){for(const [px,pz]of [[x-r,z],[x+r,z],[x,z-r],[x,z+r]])if(!regions.some(a=>px>=a[0]&&px<=a[1]&&pz>=a[2]&&pz<=a[3]))return true;for(const b of colliders)if(x+r>b.x0&&x-r<b.x1&&z+r>b.z0&&z-r<b.z1)return true;for(const [id,b]of Object.entries(gates))if(doorClosed(id,s)&&x+r>b.x0&&x-r<b.x1&&z+r>b.z0&&z-r<b.z1)return true;if(s.rubble&&x+r>-1.5&&x-r<1.5&&z+r>-7.55&&z-r<-6.85)return true;return false;}

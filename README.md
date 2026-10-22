@@ -14,7 +14,7 @@ Bản chơi 3D của vụ án trong căn nhà bỏ hoang: tìm Lan, khám vật 
 
 **WASD / mũi tên** đi; **chuột** nhìn; **E** khám/trốn; **V** giơ máy; **X** chụp; **F** đèn; **Shift** chạy; **J** hồ sơ; **M** sơ đồ; **Esc** tạm dừng. Điện thoại: giữ mũi tên, kéo cảnh để nhìn, chạm các nút hành động; Chạy là nút bật/tắt. Chế độ giảm giật mình bỏ ảnh áp sát và làm đối tượng săn đuổi chậm hơn. Có tắt âm trong Tạm dừng.
 
-`house09/` chứa cảnh, điều khiển, máy ảnh và tiến trình. Thư viện Three.js, ảnh ma và các mô-đun âm thanh/chuột/tìm đường được dùng chung với TẦNG 13. Cảnh dựng bằng hình học và vật liệu ảnh cục bộ; ảnh minh họa trong `docs/mockups` là chuẩn mỹ thuật, không phải ảnh chụp game.
+`house09/` chứa cảnh, điều khiển, máy ảnh và tiến trình. Thư viện Three.js và các mô-đun âm thanh/chuột/tìm đường được dùng chung với TẦNG 13. Nhà 09 có tạo hình ma riêng: tóc che mặt, áo mục, vai lệch; cả ảnh trong máy, nhân vật truy đuổi và ảnh áp sát dùng cùng tạo hình này. Cảnh dựng bằng hình học và vật liệu ảnh cục bộ; ảnh minh họa trong `docs/mockups` là chuẩn mỹ thuật, không phải ảnh chụp game.
 
 Kiểm tra: `node tools/test-house09-state.mjs` và `node tools/test-house09.cjs`. Kiểm tra trình duyệt cần Playwright/Chrome. `PLAYWRIGHT_MODULE` cho phép chỉ đường dẫn thư viện có sẵn. Bằng chứng kiểm tra nằm trong `_preview/house09/` (không đưa vào Git).
 
